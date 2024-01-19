@@ -7,4 +7,23 @@
 
 body {
     background-color: #252a34;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    text-align: center;
+    padding-top: 5vh;
+}
+
+.turn-container {
+    width: 170px;
+    height: 80px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.turn-container h3 {
+    grid-column-start: 1;
+    grid-column-end: 3;
 }
