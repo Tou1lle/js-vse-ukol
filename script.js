@@ -74,3 +74,17 @@ function checkDraw() {
         }
     }
 }
+
+document.querySelector("#play-again").addEventListener("click", () => {
+    isGameOver = false;
+    turn = "X";
+    document.querySelector(".bg").style.left = "0px";
+    document.querySelector("#results").innerHTML = "";
+    document.querySelector("#play-again").style.display = "none";
+
+    boxes.forEach(box => {
+        box.innerHTML = "";
+        box.style.removeProperty("background-color");
+        box.style.color = "#fff";
+    })
+})
