@@ -56,6 +56,10 @@ function checkWin() {
             document.querySelector("#results").innerHTML = turn + " Wins!";
             document.querySelector("#play-again").style.display = "inline";
 
+            // Determine the winning player and update scores   
+            const winningPlayer = (turn === "X") ? playerX : playerO;
+            updateScores(winningPlayer);
+
             for (j = 0; j < 3; j++) {
                 boxes[winConditions[i][j]].style.backgroundColor = "#08D9D6";
                 boxes[winConditions[i][j]].style.color = "#000";
@@ -114,6 +118,19 @@ function changePlayerName(player) {
         document.getElementById(`${player.mark === 'X' ? 'playerX' : 'playerO'}Name`).textContent = player.name;
         localStorage.setItem(`${player.mark === 'X' ? 'playerX' : 'playerO'}Name`, player.name);
     }
+}
+
+// Function to update scores and save to Local Storage
+function updateScores(winningPlayer) {
+    winningPlayer.score++;
+    
+    // Update HTML scores
+    document.getElementById("playerXScore").textContent = `Score: ${playerX.score}`;
+    document.getElementById("playerOScore").textContent = `Score: ${playerO.score}`;
+
+    // Save scores to Local Storage
+    localStorage.setItem("playerXScore", playerX.score);
+    localStorage.setItem("playerOScore", playerO.score);
 }
 
 // Function to handle change name buttons
