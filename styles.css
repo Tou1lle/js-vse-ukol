@@ -113,3 +113,24 @@ body {
     background-color: #08D9D6;
     color: #000;
 }
+
+.button-reset-container {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+#resetGame {
+    background-color: #08D9D6;
+    color: #000;
+    padding: 10px 25px;
+    border: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#resetGame:hover {
+    color: #fff;
+    padding: 10px 40px;
+}
