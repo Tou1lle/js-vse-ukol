@@ -145,3 +145,41 @@ document.getElementById("changePlayerXName").addEventListener("click", () => {
 document.getElementById("changePlayerOName").addEventListener("click", () => {
     changePlayerName(playerO);
 });
+
+// Function to handle game reset
+function resetGame() {
+    // Reset player names
+    playerX.name = "Player X";
+    playerO.name = "Player O";
+    document.getElementById("playerXName").textContent = playerX.name;
+    document.getElementById("playerOName").textContent = playerO.name;
+
+    // Reset player scores
+    playerX.score = 0;
+    playerO.score = 0;
+    document.getElementById("playerXScore").textContent = `Score: ${playerX.score}`;
+    document.getElementById("playerOScore").textContent = `Score: ${playerO.score}`;
+
+    // Clear Local Storage for player names and scores
+    localStorage.removeItem("playerXName");
+    localStorage.removeItem("playerOName");
+    localStorage.removeItem("playerXScore");
+    localStorage.removeItem("playerOScore");
+
+    // Reset the game state
+    isGameOver = false;
+    turn = "X";
+    document.querySelector(".bg").style.left = "0px";
+    document.querySelector("#results").innerHTML = "";
+    document.querySelector("#play-again").style.display = "none";
+
+    // Reset box content and styles
+    boxes.forEach(box => {
+        box.innerHTML = "";
+        box.style.removeProperty("background-color");
+        box.style.color = "#fff";
+    });
+}
+
+// Event listener for the "Reset Game" button
+document.getElementById("resetGame").addEventListener("click", resetGame);
