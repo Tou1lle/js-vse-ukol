@@ -6,6 +6,11 @@ let isGameOver = false;
 const playerX = createPlayer("Player X", "X");
 const playerO = createPlayer("Player O", "O");
 
+
+// Update player names in the HTML
+document.getElementById("playerXName").textContent = playerX.name;
+document.getElementById("playerOName").textContent = playerO.name;
+
 boxes.forEach(box => {
     box.innerHTML = "";
     box.addEventListener("click", () => {
@@ -100,3 +105,22 @@ function createPlayer(name, mark) {
         score: 0,
     };
 }
+
+// Function to change player names
+function changePlayerName(player) {
+    const newName = prompt(`Enter new name for ${player.name}`);
+    if (newName) {
+        player.name = newName;
+        document.getElementById(`${player.mark === 'X' ? 'playerX' : 'playerO'}Name`).textContent = player.name;
+        localStorage.setItem(`${player.mark === 'X' ? 'playerX' : 'playerO'}Name`, player.name);
+    }
+}
+
+// Function to handle change name buttons
+document.getElementById("changePlayerXName").addEventListener("click", () => {
+    changePlayerName(playerX);
+});
+
+document.getElementById("changePlayerOName").addEventListener("click", () => {
+    changePlayerName(playerO);
+});
