@@ -3,6 +3,9 @@ let boxes = document.querySelectorAll(".box");
 let turn = "X";
 let isGameOver = false;
 
+const playerX = createPlayer("Player X", "X");
+const playerO = createPlayer("Player O", "O");
+
 boxes.forEach(box => {
     box.innerHTML = "";
     box.addEventListener("click", () => {
@@ -88,3 +91,12 @@ document.querySelector("#play-again").addEventListener("click", () => {
         box.style.color = "#fff";
     })
 })
+
+// create a player with marker either X or O, initial score is 0
+function createPlayer(name, mark) {
+    return {
+        name: name,
+        mark: mark,
+        score: 0,
+    };
+}
