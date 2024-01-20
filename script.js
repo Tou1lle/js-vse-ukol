@@ -9,6 +9,7 @@ boxes.forEach(box => {
         if(!isGameOver && box.innerHTML === "") {
             box.innerHTML = turn;
 
+            // Check after every move if win/draw and change turn
             checkWin();
             checkDraw();
             changeTurn();
@@ -27,6 +28,7 @@ function changeTurn() {
     }
 }
 
+// Check winner of the game
 function checkWin() {
     let winConditions = [
         [0, 1, 2], [3, 4, 5], [6, 7, 8], // rows
@@ -40,6 +42,7 @@ function checkWin() {
         let v1 = boxes[winConditions[i][1]].innerHTML;
         let v2 = boxes[winConditions[i][2]].innerHTML;
 
+        // Change Color and display buttons if one either X / O wins
         if (v0 != "" && v0 === v1 && v0 === v2) {
             isGameOver = true;
             document.querySelector("#results").innerHTML = turn + " Wins!";
@@ -53,6 +56,21 @@ function checkWin() {
     }
 }
 
+// Check if it's draw
 function checkDraw() {
+    if (!isGameOver) {
+        let isDraw = true;
+        
+        boxes.forEach(box => {
+            if (box.innerHTML === "") {
+                isDraw = false;
+            }
+        })
 
+        if (isDraw) {
+            isGameOver = true;
+            document.querySelector("#results").innerHTML = "Draw!";
+            document.querySelector("#play-again").style.display = "inline";
+        }
+    }
 }
