@@ -15,11 +15,6 @@ document.getElementById("playerOName").textContent = playerO.name;
 document.getElementById("playerXScore").textContent = `Score: ${playerX.score}`;
 document.getElementById("playerOScore").textContent = `Score: ${playerO.score}`;
 
-
-// Update player names in the HTML
-document.getElementById("playerXName").textContent = playerX.name;
-document.getElementById("playerOName").textContent = playerO.name;
-
 boxes.forEach(box => {
     box.innerHTML = "";
     box.addEventListener("click", () => {
