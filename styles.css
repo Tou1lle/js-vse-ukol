@@ -92,3 +92,24 @@ body {
     background-color: #08D9D6;
     color: #000;
 }
+
+.players-info {
+    display: flex;
+    justify-content: center;
+    gap: 20%;
+}
+
+.player-name {
+    background-color: #FF2E63;
+    padding: 10px 25px;
+    border: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.player-name:hover {
+    padding: 10px 40px;
+    background-color: #08D9D6;
+    color: #000;
+}
