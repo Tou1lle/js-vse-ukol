@@ -33,6 +33,17 @@ function checkWin() {
         [0, 3, 6], [1, 4, 7], [2, 5, 8], // columns
         [0, 4, 8], [2, 4, 6]             // diagonal
     ]
+
+    // Check if there are three same X/O based on conditions
+    for (let i = 0; i < winConditions.length; i++) {
+        let v0 = boxes[winConditions[i][0]].innerHTML;
+        let v1 = boxes[winConditions[i][1]].innerHTML;
+        let v2 = boxes[winConditions[i][2]].innerHTML;
+
+        if (v0 != "" && v0 === v1 && v0 === v2) {
+            isGameOver = true;
+        }
+    }
 }
 
 function checkDraw() {
