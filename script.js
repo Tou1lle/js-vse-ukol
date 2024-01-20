@@ -3,8 +3,17 @@ let boxes = document.querySelectorAll(".box");
 let turn = "X";
 let isGameOver = false;
 
-const playerX = createPlayer("Player X", "X");
-const playerO = createPlayer("Player O", "O");
+const playerX = createPlayer(localStorage.getItem("playerXName") || "Player X", "X");
+const playerO = createPlayer(localStorage.getItem("playerOName") || "Player O", "O");
+
+playerX.score = parseInt(localStorage.getItem("playerXScore")) || 0;
+playerO.score = parseInt(localStorage.getItem("playerOScore")) || 0;
+
+// Take names and score from local storage
+document.getElementById("playerXName").textContent = playerX.name;
+document.getElementById("playerOName").textContent = playerO.name;
+document.getElementById("playerXScore").textContent = `Score: ${playerX.score}`;
+document.getElementById("playerOScore").textContent = `Score: ${playerO.score}`;
 
 
 // Update player names in the HTML
